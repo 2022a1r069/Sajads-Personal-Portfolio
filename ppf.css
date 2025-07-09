@@ -230,6 +230,33 @@ section .content {
   border: 2px solid transparent;
   transition: all 0.4s ease;
 }
+@media (max-width: 750px) {
+  .home .home-content {
+    width: 95%;
+    padding: 0 10px;
+  }
+
+  .about .about-details {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about .about-details .left,
+  .about-details .right {
+    width: 100%;
+  }
+
+  .about .left img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section .content {
+    width: 95%;
+    margin: 20px auto;
+  }
+}
+
 .home .button button:hover{
   border-color: #4070f4;
   background-color: #fff;
@@ -522,8 +549,82 @@ footer .text span a:hover{
     margin: 10px 0;
   }
   nav.sticky .menu a:hover{
-    color: #4070f4;
+    color: #4070f/* === Mobile Menu Toggle Styles === */
+.menu-btn,
+.cancel-btn {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: #4070f4;
+  cursor: pointer;
+  display: none;
+  z-index: 1001;
+}
+
+/* When navbar is active, show mobile menu */
+.navbar.active .menu {
+  left: 0;
+}
+
+/* Menu panel (hidden by default) */
+.navbar .menu {
+  display: flex;
+  gap: 20px;
+}
+
+/* Responsive mobile nav */
+@media (max-width: 750px) {
+  .menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    background: #0E2431;
+    height: 100vh;
+    max-width: 400px;
+    width: 100%;
+    flex-direction: column;
+    padding-top: 60px;
+    align-items: center;
+    transition: all 0.4s ease;
+    z-index: 999;
   }
+
+  .navbar.active .menu {
+    left: 0;
+  }
+
+  .menu li {
+    margin: 15px 0;
+  }
+
+  .menu a {
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .menu-btn,
+  .cancel-btn {
+    display: block;
+  }
+
+  .cancel-btn {
+    color: #fff;
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 24px;
+    z-index: 1001;
+  }
+
+  .media-icons {
+    display: none;
+  }
+}
+
+  
   nav .navbar .media-icons{
     display: none;
   }
@@ -572,17 +673,5 @@ footer .text span a:hover{
   }
 }
 
-.visit-mashooq {
-  margin-left: 10px;
-  background-color: #d4af37;
-  color: #000;
-  font-weight: 500;
-}
-
-.visit-mashooq:hover {
-  background-color: #fff;
-  color: #d4af37;
-  border: 2px solid #d4af37;
-}
 
 
