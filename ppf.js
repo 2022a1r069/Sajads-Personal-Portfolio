@@ -13,8 +13,8 @@ window.addEventListener("scroll", () => {
 });
 
 // Responsive Menu Toggle
-const menuBtn = document.querySelector(".menu-btn i");
-const cancelBtn = document.querySelector(".cancel-btn i");
+const menuBtn = document.querySelector(".menu-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
 const navBar = document.querySelector(".navbar");
 
 menuBtn.addEventListener("click", () => {
@@ -26,15 +26,13 @@ cancelBtn.addEventListener("click", () => {
 });
 
 // Close mobile menu on link click
-const menuLinks = document.querySelectorAll(".menu a");
-
-menuLinks.forEach(link => {
+document.querySelectorAll(".menu a").forEach(link => {
   link.addEventListener("click", () => {
     navBar.classList.remove("active");
   });
 });
 
-// Optional: Smooth scroll (native behavior on modern browsers)
+// Optional: Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
