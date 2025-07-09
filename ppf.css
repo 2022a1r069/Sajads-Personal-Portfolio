@@ -469,7 +469,7 @@ section .button button:hover{
 }
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p {
-  color: #fff; /* OR #0E2431, pick one */
+  color:#4070f4; /* OR #0E2431, pick one */
   transition: all 0.4s ease;
 }
 
