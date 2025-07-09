@@ -31,11 +31,11 @@ nav {
   left: 0;
   width: 100%;
   padding: 20px 0;
-  background: #fff; /* ✅ Added background */
-  z-index: 999; /* ✅ Ensure it stays on top */
+  background: #fff;
+  z-index: 999;
   transition: all 0.3s ease;
   font-family: 'Ubuntu', sans-serif;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* ✅ Optional shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 nav.sticky {
   background: #4070f4;
@@ -57,29 +57,15 @@ nav .navbar .logo a {
 nav.sticky .navbar .logo a {
   color: #fff;
 }
+
 nav .navbar .menu {
-  position: fixed;
-  top: 0;
-  left: -100vw;
-  height: 100vh;
-  background: #0E2431;
-  width: 100vw;
-  max-width: 400px;
-  padding-top: 60px;
-  flex-direction: column;
-  align-items: center;
-  transition: all 0.5s ease;
-  z-index: 998;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
-
-.navbar.active .menu {
-  left: 0;
-}
-
 nav .navbar .menu li {
   list-style: none;
-  margin: 0 8px;
 }
 .navbar .menu a {
   font-size: 18px;
@@ -92,54 +78,83 @@ nav .navbar .menu li {
   color: #4070f4;
 }
 nav.sticky .menu a {
-  color: #FFF;
+  color: #fff;
 }
 nav.sticky .menu a:hover {
-  color: #0E2431;
+  color: #FFD700;
 }
+
 .navbar .media-icons a {
   color: #4070f4;
   font-size: 18px;
   margin: 0 6px;
 }
 nav.sticky .media-icons a {
-  color: #FFF;
-}
-
-/* ✅ Side Navigation Menu Button CSS */
-nav .menu-btn,
-.navbar .menu .cancel-btn {
-  position: absolute;
-  right: 30px;
-  top: 50%; /* ✅ Vertically center */
-  transform: translateY(-50%); /* ✅ Fix vertical alignment */
-  font-size: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: none;
-  z-index: 1001; /* ✅ Keep above menu */
-}
-nav .menu-btn {
-  color: #4070f4;
-}
-nav.sticky .menu-btn {
-  color: #FFF;
-}
-.navbar .menu .menu-btn {
   color: #fff;
 }
 
-/* ✅ Ensure content doesn't hide under fixed nav */
+nav .menu-btn,
+.navbar .cancel-btn {
+  display: none;
+}
+
+/* Responsive Nav */
+@media (max-width: 750px) {
+  nav .navbar .menu {
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    height: 100vh;
+    background: #0E2431;
+    width: 100vw;
+    max-width: 400px;
+    padding-top: 60px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.5s ease;
+    z-index: 998;
+  }
+  .navbar.active .menu {
+    left: 0;
+  }
+  nav .navbar .menu a {
+    font-size: 23px;
+    color: #fff;
+    margin: 10px 0;
+    display: block;
+  }
+  nav.sticky .menu a:hover {
+    color: #4070f4;
+  }
+  nav .menu-btn,
+  .navbar .cancel-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 24px;
+    color: #4070f4;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  nav.sticky .menu-btn {
+    color: #fff;
+  }
+  nav .navbar .media-icons {
+    display: none;
+  }
+}
+
 section {
-  padding-top: 80px; /* ✅ Prevent overlap */
+  padding-top: 80px;
+  overflow-x: hidden;
 }
 section .content {
-  width: 80%;
+  width: 90%;
   margin: 40px auto;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Scroll TO Top Button CSS */
 .scroll-button a {
   position: fixed;
   bottom: 20px;
@@ -152,47 +167,6 @@ section .content {
   box-shadow: rgba(0, 0, 0, 0.15);
   display: none;
 }
-
-/* ✅ Responsive Media Query Fixes */
-@media (max-width: 750px) {
-  nav .navbar {
-    width: 90%;
-  }
-  nav .navbar .menu {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    background: #0E2431;
-    height: 100vh;
-    max-width: 400px;
-    width: 100%;
-    padding-top: 60px;
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.5s ease;
-    z-index: 998;
-  }
-  .navbar.active .menu {
-    left: 0;
-  }
-  nav .navbar .menu a {
-    font-size: 23px;
-    display: block;
-    color: #fff;
-    margin: 10px 0;
-  }
-  nav.sticky .menu a:hover {
-    color: #4070f4;
-  }
-  nav .navbar .media-icons {
-    display: none;
-  }
-  nav .menu-btn,
-  .navbar .menu .cancel-btn {
-    display: block;
-  }
-}
-
 /* Keep your other section styles the same (home, about, skills, etc.) */
 /* home section styling */
 .home{
@@ -469,7 +443,7 @@ section .button button:hover{
 }
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p {
-  color:#4070f4; /* OR #0E2431, pick one */
+  color: #fff; /* OR #0E2431, pick one */
   transition: all 0.4s ease;
 }
 
