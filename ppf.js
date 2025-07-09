@@ -32,7 +32,7 @@ document.querySelectorAll(".menu a").forEach(link => {
   });
 });
 
-// Optional: Smooth scroll
+// Smooth Scroll for internal anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -45,3 +45,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
