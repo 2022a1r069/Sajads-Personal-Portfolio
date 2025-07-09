@@ -7,6 +7,7 @@
   text-decoration: none;
   scroll-behavior: smooth;
 }
+
 /* Custom Scroll Bar CSS */
 ::-webkit-scrollbar {
   width: 10px;
@@ -57,9 +58,25 @@ nav.sticky .navbar .logo a {
   color: #fff;
 }
 nav .navbar .menu {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  height: 100vh;
+  background: #0E2431;
+  width: 100vw;
+  max-width: 400px;
+  padding-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.5s ease;
+  z-index: 998;
   display: flex;
-  position: relative;
 }
+
+.navbar.active .menu {
+  left: 0;
+}
+
 nav .navbar .menu li {
   list-style: none;
   margin: 0 8px;
@@ -184,7 +201,8 @@ section .content {
   background: url("images/background.png") no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-attachment: scroll;
+
   font-family: 'Ubuntu', sans-serif;
 }
 .home .home-content{
@@ -267,12 +285,24 @@ section .content {
  I'm Selecting Directly 'Section Tag' and 'Class'  */
 section{
   padding-top: 40px;
+  overflow-x: hidden;
 }
-section .content{
-  width: 80%;
+section .content {
+  width: 100%;
+  max-width: 1200px;
   margin: 40px auto;
+  padding: 0 20px;
   font-family: 'Poppins', sans-serif;
 }
+
+@media (max-width: 1190px) {
+  section .content {
+    padding: 0 15px;
+  }
+}
+
+
+ 
 .about .about-details{
   display: flex;
   justify-content: space-between;
@@ -438,14 +468,11 @@ section .button button:hover{
   color: #4070f4;
 }
 .services .boxes .box:hover .topic,
-.services .boxes .box:hover p{
-  color: #0E2431;
+.services .boxes .box:hover p {
+  color: #fff; /* OR #0E2431, pick one */
   transition: all 0.4s ease;
 }
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p{
-  color: #fff;
-}
+
 /* Contact Me CSS */
 .contact{
   background: #F0F8FF;
@@ -478,19 +505,7 @@ footer .text span a{
 footer .text span a:hover{
   text-decoration: underline;
 }
-/* Scroll TO Top Button CSS */
-.scroll-button a{
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  color: #fff;
-  background: #4070f4;
-  padding: 7px 12px;;
-  font-size: 18px;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.15);
-  display: none;
-}
+
 /* Responsive Media Query */
 @media (max-width: 1190px) {
   section .content{
@@ -599,6 +614,39 @@ footer .text span a:hover{
   }
 }
 
+.visit-mashooq {
+  margin-left: 10px;
+  background-color: #d4af37;
+  color: #000;
+  font-weight: 500;
+}
+
+.visit-mashooq:hover {
+  background-color: #fff;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+}
+
+
+/* General Fixes */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 
 
 
+/* Images never overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 400px) {
+  .home .text-two {
+    font-size: 45px;
+  }
+  .home .text-three {
+    font-size: 28px;
+  }
+}
